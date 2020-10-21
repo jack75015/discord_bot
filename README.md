@@ -9,3 +9,12 @@ To stop the event:
 ````
 !event stop
 ````
+
+**Token**
+
+You need to have a config json file to the root folder:
+```
+{
+    "BOT_TOKEN": "your_token"
+}
+```
