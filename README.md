@@ -1,3 +1,7 @@
+This BOT allows you to time box meetings. 
+
+This can be useful to control the working time, not to waste too much time and to respect the Agile software development
+
 **How to use it**
 
 To start an event of `10` minutes with a reminder every `2` minutes: 
