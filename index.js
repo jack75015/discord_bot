@@ -5,9 +5,9 @@ const client = new Discord.Client();
 
 const prefix = "!";
 let timer;
-let count = 0;
+let count = 4;
 let arg0 = 0;
-let arg1 = 0;
+let interval = 4;
 
 client.on("message", function(message) {
   if (message.author.bot) return;
@@ -18,9 +18,7 @@ client.on("message", function(message) {
   const command = args.shift().toLowerCase();
 
   if (command === "event") {
-    arg0 = args[0] ?? undefined;
-    arg1 = args[1] ?? undefined;
-
+    arg0 = args[0] || undefined;
     if (arg0 === "stop") {
         stopEvent(message);
     } else if (!isNaN(arg0)) {
@@ -30,7 +28,7 @@ client.on("message", function(message) {
     }
   }
   else if (command === "help") {
-    message.channel.send("exemple of new time box: \n ```!event 10 2``` \n To have a `10` minutes time box with reminder every `2` minutes");
+    message.channel.send("exemple of new time box: \n ```!event 10``` \n To have a `10` minutes time box (with 4 reminders)");
   } else {
     message.channel.send(`unknow command ${command}`);
   }
@@ -39,16 +37,14 @@ client.on("message", function(message) {
 client.login(config.BOT_TOKEN);
 
 function startTimer(message){
-    if (arg1) {
-        clearInterval(timer);
-        count = arg0 / arg1;
-        message.channel.send(
-        `Start meeting timer for ${arg0} minutes, with a reminder every ${arg1} minute(s)`
-        );
-        timer = setInterval(() => timeControl(message), arg1 * 1000);
-    } else {
-        message.channel.send(`No reminder parameter`);
-      }
+    arg0 = Math.trunc(arg0);
+    interval = arg0 / 4;
+    count = 4;
+    clearInterval(timer);
+    message.channel.send(
+    `Start meeting timer for ${arg0} minute(s) ( with 4 reminders)`
+    );
+    timer = setInterval(() => timeControl(message), interval * 1000);
 }
 
 function timeControl(message) {
@@ -60,13 +56,11 @@ function timeControl(message) {
     //     member.voice.kick();
     // });
   } else {
-    message.channel.send(`Meeting finish in ${arg1 * count} minutes`);
+    message.channel.send(`Meeting finish in ${parseFloat(interval * count).toFixed(2)} minutes`);
   }
 }
 
 function stopEvent(message){
     message.channel.send(`Stop timer!`);
     clearInterval(timer);
-    count = 0;
-    arg1 = 0;
 }

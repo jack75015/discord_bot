@@ -4,9 +4,9 @@ This can be useful to control the working time, not to waste too much time and t
 
 **How to use it**
 
-To start an event of `10` minutes with a reminder every `2` minutes: 
+To start an event of `10` minutes (with 4 reminders): 
 ```
-!event 10 2
+!event 10
 ```
 
 To stop the event:
