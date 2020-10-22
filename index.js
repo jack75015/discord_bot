@@ -64,3 +64,13 @@ function stopEvent(message){
     message.channel.send(`Stop timer!`);
     clearInterval(timer);
 }
+
+client.on('presenceUpdate', (oldPresence, newPresence) => {
+    if (newPresence) {
+        directMessageAdmin(`User ${newPresence.user.username} is now ${newPresence.status}`);
+    }
+})
+
+function directMessageAdmin(msg){
+    client.users.cache.get(config.ADMIN_ID).send(msg);
+}

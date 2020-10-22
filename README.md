@@ -22,3 +22,10 @@ You need to have a config json file to the root folder:
     "BOT_TOKEN": "your_token"
 }
 ```
+
+**Start the Bot locally**
+
+```
+npm install
+npm start
+```
