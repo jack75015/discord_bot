@@ -54,7 +54,21 @@ export default () => ({
 
 ### Start the Bot locally ###
 
+Datebase:
 ```
+docker-compose up -d
+```
+
+Back:
+```
+cd back
+npm install
+npm start
+```
+
+Front:
+```
+cd front
 npm install
 npm start
 ```
