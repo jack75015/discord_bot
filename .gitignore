@@ -1,4 +1,6 @@
-/Back/node_modules/
-config.ts
-/Back/package-lock.json
-/Back/dist/
+/back/node_modules/
+/front/node_modules/
+/back/config.ts
+/back/package-lock.json
+/back/dist/
+/front/config.js

@@ -19,8 +19,8 @@ export class PresenceService {
     return this.presenceRepository.save(presence);
   }
 
-  findAll(): Promise<Presence[]> {
-    const result = this.presenceRepository.find()
+  async findAll(): Promise<Presence[]> {
+    const result = await this.presenceRepository.find()
     this.logger.log(`FindAll:  ${JSON.stringify(result)}`);
     return result;
   }
