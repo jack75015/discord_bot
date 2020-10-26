@@ -1,5 +1,6 @@
-const Discord = require("discord.js");
-const config = require("./config.json");
+import { Discord } from 'discord.js';
+import { config } from 'config.json';
+
 
 const client = new Discord.Client();
 

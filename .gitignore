@@ -1,3 +1,4 @@
-/node_modules/
-config.json
-package-lock.json
+/Back/node_modules/
+config.ts
+/Back/package-lock.json
+/Back/dist/
